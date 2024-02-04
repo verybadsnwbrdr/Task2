@@ -47,6 +47,8 @@ final class Button: UIButton {
 	}
 	
 	private func imageColorTransformer() -> UIConfigurationColorTransformer {
-		UIConfigurationColorTransformer { _ in self.state == .disabled ? .systemGray3 : .white }
+		UIConfigurationColorTransformer { [weak self] _ in
+			self?.state == .disabled ? .systemGray3 : .white
+		}
 	}
 }
